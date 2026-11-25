@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Bricolage Grotesque', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #f8fafc;
+    color: #0f172a;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .game-score-text {
+    font-family: var(--font-display);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 3px 0 rgba(37, 99, 235, 0.16);
+  }
+
+  .game-score-text-dark {
+    font-family: var(--font-display);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 3px 0 rgba(56, 189, 248, 0.25);
+  }
+
+  .game-btn-primary {
+    box-shadow: 0 3px 0 #1d4ed8;
+    transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.12s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease;
+  }
+
+  .game-btn-primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 0 #1d4ed8;
+  }
+
+  .game-btn-primary:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #1d4ed8;
+  }
+
+  .game-btn-secondary {
+    box-shadow: 0 2px 0 rgba(15, 23, 42, 0.1);
+    transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.12s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease;
+  }
+
+  .game-btn-secondary:active:not(:disabled) {
+    transform: translateY(1.5px);
+    box-shadow: 0 0.5px 0 rgba(15, 23, 42, 0.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
